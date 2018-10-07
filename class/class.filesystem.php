@@ -20,6 +20,14 @@ class CustomFileSystem
      */
     public function copyFilesFolders($source, $dest)
     {
+        // if (!file_exists($dest)) {
+        //     echo "{$dest} doesnt exist" . PHP_EOL;
+
+        //     if (!is_file($dest)) {
+        //         mkdir($dest);
+        //     }
+        // }
+
         if (is_dir($source)) {
             $iterator = new RecursiveIteratorIterator(
                 new RecursiveDirectoryIterator($source, RecursiveDirectoryIterator::SKIP_DOTS),
