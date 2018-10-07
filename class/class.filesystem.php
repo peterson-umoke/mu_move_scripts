@@ -7,6 +7,7 @@
  * @version 1.0.0
  * @package mu_migration_scripts
  * @subpackage mu_migration_scripts/class
+ * @link https://davidhancock.co/2012/11/useful-php-functions-for-dealing-with-the-file-system/
  */
 class CustomFileSystem
 {
