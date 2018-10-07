@@ -1,0 +1,13 @@
+{
+  "require": {
+    "catfan/medoo": "^1.5"
+  },
+  "autoload": {
+    "classmap": [
+      "class"
+    ],
+    "files": [
+      "config/config.php"
+    ]
+  }
+}
