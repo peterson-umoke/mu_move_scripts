@@ -3,28 +3,17 @@
 require_once dirname(__FILE__) . "/vendor/autoload.php";
 
 $file = new CustomFileSystem();
-$init_counter = 6;
-$final_counter = 14;
-
-// start the loop for the entire copy file
-for ($i = $init_counter; $i <= $final_counter; $i++) {
-    // copy files and images
-    $year = 2018;
-    $source = dirname(__FILE__) . "/../wp-content/uploads/{$year}";
-    $dest = dirname(__FILE__) . "/../wp-content/uploads/sites/{$i}/{$year}";
-
-    $file->copyFilesFolders($source, $dest);
-}
-
 $init_counter = 2;
 $final_counter = 14;
+$years = [2017, 2018];
 
 // start the loop for the entire copy file
 for ($i = $init_counter; $i <= $final_counter; $i++) {
     // copy files and images
-    $year = 2017;
-    $source = dirname(__FILE__) . "/../wp-content/uploads/{$year}";
-    $dest = dirname(__FILE__) . "/../wp-content/uploads/sites/{$i}/{$year}";
+    for ($x = 0; $x <= count($years); $x++) {
+        $source = dirname(__FILE__) . "/../wp-content/uploads/{$x}";
+        $dest = dirname(__FILE__) . "/../wp-content/uploads/sites/{$i}/{$x}";
 
-    $file->copyFilesFolders($source, $dest);
+        $file->copyFilesFolders($source, $dest);
+    }
 }
