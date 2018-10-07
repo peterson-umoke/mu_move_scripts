@@ -14,40 +14,40 @@ for ($i = 2; $i <= 14; $i++) {
     if ($i !== 6) {
         $post_type = "post";
         // get all related posts
-        $result = $this->initDB()->count("{$prefix}posts", "*", [
+        $result = $db->select("{$prefix}posts", "*", [
             "post_type" => $post_type
         ]);
 
         // loop
         foreach ($result as $key => $value) {
-            $this->initDB()->delete("{$prefix}postmeta", [
+            $db->delete("{$prefix}postmeta", [
                 "post_id" => $value['ID']
             ]);
             echo "done deteting meta" . PHP_EOL;
         }
 
         // delete posts
-        $this->initDB()->delete("{$prefix}posts", [
+        $db->delete("{$prefix}posts", [
             "post_type" => $post_type
         ]);
         echo "deleted all post types for {$post_type}" . PHP_EOL;
     } else {
         $post_type = "product";
         // get all related posts
-        $result = $this->initDB()->count("{$prefix}posts", "*", [
+        $result = $db->select("{$prefix}posts", "*", [
             "post_type" => $post_type
         ]);
 
         // loop
         foreach ($result as $key => $value) {
-            $this->initDB()->delete("{$prefix}postmeta", [
+            $db->delete("{$prefix}postmeta", [
                 "post_id" => $value['ID']
             ]);
             echo "done deteting meta" . PHP_EOL;
         }
 
         // delete posts
-        $this->initDB()->delete("{$prefix}posts", [
+        $db->delete("{$prefix}posts", [
             "post_type" => $post_type
         ]);
         echo "deleted all post types for {$post_type}" . PHP_EOL;
