@@ -9,19 +9,19 @@
 /**
  * define the database name
  */
-define("DATABASE_NAME", "gctuts");
+define("DATABASE_NAME", "gidieven_prev");
 
 /**
  * define the database password
  */
-define("DATABASE_PASSWORD", "");
+define("DATABASE_PASSWORD", "N@t$]ePo[EGV");
 
 /**
  * define the database username
  */
-define("DATABASE_USERNAME", "root");
+define("DATABASE_USERNAME", "gidieven_db_user");
 
 /**
  * define the database host
  */
-define("DATABASE_HOST", "127.0.0.1");
+define("DATABASE_HOST", "localhost");
