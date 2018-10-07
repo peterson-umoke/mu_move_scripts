@@ -13,43 +13,15 @@ for ($i = 2; $i <= 14; $i++) {
     // make sure we dont upload products in a post
     if ($i !== 6) {
         $post_type = "post";
+        $query = "DELETE posts, postmeta FROM wp_posts as posts INNER JOIN wp_postmeta as postmeta WHERE posts.post_type = '{$post_type}' and postmeta.post_id = posts.id";
         // get all related posts
-        $result = $db->select("{$prefix}posts", "*", [
-            "post_type" => $post_type
-        ]);
-
-        // loop
-        foreach ($result as $key => $value) {
-            $db->delete("{$prefix}postmeta", [
-                "post_id" => $value['ID']
-            ]);
-            echo "done deteting meta" . PHP_EOL;
-        }
-
-        // delete posts
-        $db->delete("{$prefix}posts", [
-            "post_type" => $post_type
-        ]);
+        $db->query($query);
         echo "deleted all post types for {$post_type}" . PHP_EOL;
     } else {
         $post_type = "product";
+        $query = "DELETE posts, postmeta FROM wp_posts as posts INNER JOIN wp_postmeta as postmeta WHERE posts.post_type = '{$post_type}' and postmeta.post_id = posts.id";
         // get all related posts
-        $result = $db->select("{$prefix}posts", "*", [
-            "post_type" => $post_type
-        ]);
-
-        // loop
-        foreach ($result as $key => $value) {
-            $db->delete("{$prefix}postmeta", [
-                "post_id" => $value['ID']
-            ]);
-            echo "done deteting meta" . PHP_EOL;
-        }
-
-        // delete posts
-        $db->delete("{$prefix}posts", [
-            "post_type" => $post_type
-        ]);
+        $db->query($query);
         echo "deleted all post types for {$post_type}" . PHP_EOL;
     }
 }

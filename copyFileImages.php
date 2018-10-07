@@ -10,7 +10,7 @@ $years = [2017, 2018];
 // start the loop for the entire copy file
 for ($i = $init_counter; $i <= $final_counter; $i++) {
     // copy files and images
-    for ($x = 0; $x <= count($years); $x++) {
+    foreach ($years as $count => $x) {
         $source = dirname(__FILE__) . "/../wp-content/uploads/{$x}";
         $dest = dirname(__FILE__) . "/../wp-content/uploads/sites/{$i}/{$x}";
 
